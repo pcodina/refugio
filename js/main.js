@@ -185,3 +185,19 @@ function initPlayer(root) {
 
 const playerRoot = document.querySelector('.player');
 if (playerRoot) initPlayer(playerRoot);
+
+/* Videoclips: el iframe (youtube-nocookie) solo se carga al pulsar.
+   Sin JS, el enlace abre el vídeo en YouTube. */
+document.querySelectorAll('.video__poster').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.player__audio')?.pause();
+    const frame = document.createElement('div');
+    frame.className = 'video__frame';
+    frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${link.dataset.video}?autoplay=1&rel=0"
+      title="Videoclip de ${link.dataset.title}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+      allowfullscreen></iframe>`;
+    link.replaceWith(frame);
+    frame.querySelector('iframe').focus();
+  });
+});

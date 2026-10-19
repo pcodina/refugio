@@ -675,6 +675,69 @@ a:hover { text-decoration-thickness: 2px; }
   .release { grid-template-columns: minmax(9rem, 15rem) 1fr; gap: var(--s-5); }
 }
 
+/* Videoclips: miniatura enlazada a YouTube; con JS se sustituye por el iframe al pulsar */
+
+.videos {
+  padding-block: var(--section-y);
+  border-top: 1px solid var(--c-rule);
+}
+
+.videos__list { display: grid; gap: var(--s-7); margin-top: var(--s-7); }
+
+.video__poster,
+.video__frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: var(--c-raised);
+}
+
+.video__poster img,
+.video__frame iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+
+.video__play {
+  position: absolute;
+  left: var(--s-4);
+  bottom: var(--s-4);
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  background: var(--c-ink);
+  color: var(--c-ground);
+}
+.video__play .icon { width: 1.75rem; height: 1.75rem; }
+
+@media (hover: hover) {
+  .video__poster:hover .video__play { background: var(--c-wound); color: var(--c-ink); }
+}
+
+.video__title {
+  margin-top: var(--s-4);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.video__meta {
+  margin-top: var(--s-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--c-muted);
+}
+
+@media (min-width: 768px) {
+  .videos__list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gap); }
+}
+
 /* Próximo concierto */
 
 .gig {
@@ -756,7 +819,7 @@ a:hover { text-decoration-thickness: 2px; }
 
 .contact__email {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 8.6vw, 2rem);
+  font-size: clamp(1.75rem, 8.6vw, 4rem);
   font-weight: 800;
   line-height: 1.1;
   text-decoration: none;

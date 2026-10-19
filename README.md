@@ -16,7 +16,7 @@ Bloque `TRACKS` al principio de `js/main.js`:
 ## Medición
 Clics con `data-event` y cada reproducción emiten `refugio:event` en `document`:
 `document.addEventListener('refugio:event', e => console.log(e.detail))`
-Eventos: click_escuchar_heridumbre, play_track, click_spotify, click_bandcamp, click_instagram, click_email.
+Eventos: click_escuchar_heridumbre, play_track, click_spotify, click_bandcamp, click_instagram, click_youtube, click_email, play_video.
 
 ## Privacidad
 `<meta name="robots" content="noindex,nofollow">`. No añadir a sitemap.xml.
