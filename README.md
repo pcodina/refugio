@@ -1,4 +1,4 @@
-# REFUGIØ — Heridumbre (landing / EPK)
+# REFUGIØ — Nuevo EP (landing / EPK)
 
 Sitio estático. Subir el contenido de esta carpeta tal cual al servidor.
 
@@ -10,13 +10,13 @@ Bloque `TRACKS` al principio de `js/main.js`:
 - "Metralla" no tiene MP3 todavía: añadir el archivo en `assets/audio/` y rellenar `file` y `duration` (segundos).
 
 ## Pendiente
-- Portada de Heridumbre: descomentar el bloque marcado en `index.html` y añadir la imagen en `assets/images/`.
+- Portada del nuevo EP: descomentar el bloque marcado en `index.html` y añadir la imagen en `assets/images/`.
 - `og:url` y `og:image`: descomentar en `<head>` con el dominio definitivo.
 
 ## Medición
 Clics con `data-event` y cada reproducción emiten `refugio:event` en `document`:
 `document.addEventListener('refugio:event', e => console.log(e.detail))`
-Eventos: click_escuchar_heridumbre, play_track, click_spotify, click_bandcamp, click_instagram, click_youtube, click_email, play_video.
+Eventos: click_escuchar_ep, play_track, click_spotify, click_bandcamp, click_instagram, click_youtube, click_email, play_video.
 
 ## Privacidad
 `<meta name="robots" content="noindex,nofollow">`. No añadir a sitemap.xml.

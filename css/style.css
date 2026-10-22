@@ -1,5 +1,5 @@
 /* ==========================================================================
-   REFUGIØ — Heridumbre
+   REFUGIØ — Nuevo EP
    1. Tokens (sistema de diseño: color, tipo, espaciado, grid)
    2. Base
    3. Componentes (botones, logo, iconos)
@@ -325,7 +325,7 @@ a:hover { text-decoration-thickness: 2px; }
   max-width: 34em;
 }
 
-/* Hueco preparado para la portada de Heridumbre (ver comentario en index.html) */
+/* Hueco preparado para la portada del nuevo EP (ver comentario en index.html) */
 .ep__cover img { width: 100%; aspect-ratio: 1; object-fit: cover; }
 
 .credits {
