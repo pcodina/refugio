@@ -12,9 +12,9 @@
 const TRACKS = [
   { n: '01', title: 'Grietas',         file: 'assets/audio/grietas.mp3',         duration: 236,  visible: true  },
   { n: '02', title: 'Guías ciegos',    file: 'assets/audio/guias-ciegos.mp3',    duration: 270,  visible: true  },
-  { n: '03', title: 'Metralla',        file: null,                               duration: null, visible: false },
+  { n: '03', title: 'Metralla',        file: 'assets/audio/metralla.mp3',        duration: 313,  visible: true  },
   { n: '04', title: 'Ecos',            file: 'assets/audio/ecos.mp3',            duration: 204,  visible: true  },
-  { n: '05', title: 'Nuestros huesos', file: 'assets/audio/nuestros-huesos.mp3', duration: 309,  visible: false },
+  { n: '05', title: 'Nuestros huesos', file: 'assets/audio/nuestros-huesos.mp3', duration: 309,  visible: true  },
 ];
 
 const SHOW_LOCKED_TRACKS = true;

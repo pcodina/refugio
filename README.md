@@ -7,7 +7,6 @@ Bloque `TRACKS` al principio de `js/main.js`:
 - `visible: true` → se puede escuchar.
 - `visible: false` → aparece en el tracklist atenuada, sin reproductor.
 - `SHOW_LOCKED_TRACKS = false` → oculta del todo las no visibles.
-- "Metralla" no tiene MP3 todavía: añadir el archivo en `assets/audio/` y rellenar `file` y `duration` (segundos).
 
 ## Pendiente
 - Portada del nuevo EP: descomentar el bloque marcado en `index.html` y añadir la imagen en `assets/images/`.
