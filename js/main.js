@@ -201,3 +201,14 @@ document.querySelectorAll('.video__poster').forEach((link) => {
     frame.querySelector('iframe').focus();
   });
 });
+
+/* Vídeo de fondo: solo se reproduce mientras está en pantalla y nunca
+   si el usuario ha pedido reducir el movimiento (se queda el póster). */
+const bandVideo = document.querySelector('.band__video');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (bandVideo && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting && !reduceMotion.matches) bandVideo.play().catch(() => {});
+    else bandVideo.pause();
+  }, { threshold: 0.25 }).observe(bandVideo);
+}
