@@ -202,13 +202,44 @@ document.querySelectorAll('.video__poster').forEach((link) => {
   });
 });
 
-/* Vídeo de fondo: solo se reproduce mientras está en pantalla y nunca
-   si el usuario ha pedido reducir el movimiento (se queda el póster). */
-const bandVideo = document.querySelector('.band__video');
+/* Vídeo de fondo: solo se reproduce mientras está en pantalla, con efecto
+   parallax. Si el usuario ha pedido reducir el movimiento, ni se reproduce
+   ni se desplaza (se queda el póster). */
+const bandMedia = document.querySelector('.band__media');
+const bandVideo = bandMedia?.querySelector('.band__video');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 if (bandVideo && 'IntersectionObserver' in window) {
+  let inView = false;
+  let ticking = false;
+
+  const parallax = () => {
+    ticking = false;
+    if (!inView || reduceMotion.matches) {
+      bandVideo.style.transform = '';
+      return;
+    }
+    const r = bandMedia.getBoundingClientRect();
+    // 0 cuando el marco entra por abajo, 1 cuando sale por arriba
+    const progress = 1 - (r.bottom / (window.innerHeight + r.height));
+    const offset = (progress - 0.5) * 0.3 * r.height;
+    bandVideo.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+  };
+
+  const requestParallax = () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(parallax);
+    }
+  };
+
   new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting && !reduceMotion.matches) bandVideo.play().catch(() => {});
+    inView = entry.isIntersecting;
+    if (inView && !reduceMotion.matches) bandVideo.play().catch(() => {});
     else bandVideo.pause();
-  }, { threshold: 0.25 }).observe(bandVideo);
+    requestParallax();
+  }, { threshold: 0 }).observe(bandMedia);
+
+  window.addEventListener('scroll', requestParallax, { passive: true });
+  window.addEventListener('resize', requestParallax, { passive: true });
 }
