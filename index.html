@@ -113,13 +113,12 @@
     </section>
 
     <section class="band" aria-labelledby="band-title">
-      <picture class="band__media">
-        <source type="image/avif" srcset="assets/images/banda-local-960.avif 960w, assets/images/banda-local-1600.avif 1600w, assets/images/banda-local-1920.avif 1920w" sizes="100vw">
-        <img src="assets/images/banda-local-960.webp"
-             srcset="assets/images/banda-local-960.webp 960w, assets/images/banda-local-1600.webp 1600w, assets/images/banda-local-1920.webp 1920w"
-             sizes="100vw" width="1920" height="1280" loading="lazy" decoding="async"
-             alt="REFUGIØ ensayando en el local: bajo en primer plano, batería al fondo y guitarra y voz a la derecha, en blanco y negro.">
-      </picture>
+      <div class="band__media">
+        <video class="band__video" muted loop playsinline preload="none"
+               poster="assets/images/refugio-loop-poster.webp" width="1024" height="576" aria-hidden="true">
+          <source src="assets/video/refugio-loop.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="wrap band__grid">
         <h2 class="section-title band__title" id="band-title">REFUGIØ</h2>
         <div class="band__bio">
