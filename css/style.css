@@ -569,13 +569,22 @@ a:hover { text-decoration-thickness: 2px; }
 
 .band { padding-bottom: var(--section-y); }
 
-.band__video {
-  display: block;
-  width: 100%;
-  height: auto;
+/* Parallax: el vídeo es un 30 % más alto que su marco y JS lo desplaza al hacer scroll */
+.band__media {
+  position: relative;
+  overflow: hidden;
   aspect-ratio: 4 / 3;
+}
+
+.band__video {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  width: 100%;
+  height: 130%;
   object-fit: cover;
   object-position: 50% 35%;
+  will-change: transform;
 }
 
 .band__grid {
@@ -588,7 +597,8 @@ a:hover { text-decoration-thickness: 2px; }
 .band__lede { font-size: var(--fs-lede); line-height: 1.4; }
 
 @media (min-width: 768px) {
-  .band__video { aspect-ratio: 21 / 9; object-position: 50% 30%; }
+  .band__media { aspect-ratio: 21 / 9; }
+  .band__video { object-position: 50% 30%; }
 }
 
 @media (min-width: 1024px) {
